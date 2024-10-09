@@ -1,0 +1,13 @@
+sim/obj_dir/
+work
+transcript
+vsim.wlf
+wlft*
+sim/wave.do
+wave.do
+vivado.jou
+vivado.log
+sim_snapshot.wdb
+xelab*
+xvlog*
+xsim.dir/
