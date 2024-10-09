@@ -6,8 +6,8 @@ module tb_fifo();
   logic aresetn_rd = '0;
   logic data_wr = '0;
   logic data_rd = '0;
-  logic oflow = '0;
-  logic uflow = '0;
+  logic oflow;
+  logic uflow;
 
   time wr_clk_period = 10ns;
   time rd_clk_period = 5ns;
