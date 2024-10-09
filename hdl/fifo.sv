@@ -10,12 +10,14 @@ module fifo #(parameter int PTR_WIDTH = 8)
   output logic uflow
 );
 
+  // Signals
   logic [PTR_WIDTH-1:0] wr_ptr;
   logic [PTR_WIDTH-1:0] rd_ptr;
   logic overflow, underflow;
   logic [PTR_WIDTH-1:0] rd_ptr_s0, rd_ptr_s1, rd_ptr_sync;
   logic [PTR_WIDTH-1:0] wr_ptr_s0, wr_ptr_s1, wr_ptr_sync;
 
+  // Overflow and underflow control
   assign oflow = overflow;
   assign uflow = underflow;
   assign overflow  = (bin2gray(wr_ptr) == bin2gray(rd_ptr_sync + 1)) ? 1 : 0;
@@ -26,6 +28,7 @@ module fifo #(parameter int PTR_WIDTH = 8)
     bin2gray = binary ^ (binary >> 1);
   endfunction
 
+  // Read pointer 2-FF synchronizer
   always_ff @(posedge aclk_wr) begin
     if (!aresetn_wr) begin
       rd_ptr_s0   <= 'b0;
@@ -37,6 +40,7 @@ module fifo #(parameter int PTR_WIDTH = 8)
     end
   end
 
+  // Write pointer 2-FF synchronizer
   always_ff @(posedge aclk_rd) begin
     if (!aresetn_rd) begin
       wr_ptr_s0   <= 'b0;
@@ -48,6 +52,7 @@ module fifo #(parameter int PTR_WIDTH = 8)
     end
   end
 
+  // Write pointer control
   always_ff @(posedge aclk_wr) begin
     if  (!aresetn_wr) begin
       wr_ptr <= 'b0;
@@ -59,6 +64,7 @@ module fifo #(parameter int PTR_WIDTH = 8)
     end
   end
 
+  // Read pointer control
   always_ff @(posedge aclk_wr) begin
     if  (!aresetn_rd) begin
       rd_ptr <= 'b0;
