@@ -1,4 +1,4 @@
-module fifo #(parameter int PTR_WIDTH = 8)
+module async_fifo_ctrl #(parameter int PTR_WIDTH = 8)
 (
   input  wire  aclk_wr,
   input  wire  aclk_rd,
@@ -76,4 +76,4 @@ module fifo #(parameter int PTR_WIDTH = 8)
     end
   end
 
-endmodule : fifo
+endmodule : async_fifo_ctrl

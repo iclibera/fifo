@@ -12,7 +12,7 @@ vsim -c -do sim/questa/questa.do
 ### Explanation
 There are one RTL and 1 testbench file: \
 \
-RTL = `hdl/fifo.sv` \
+RTL = `hdl/async_fifo_ctrl.sv` \
 Testbench = `sim/tb_fifo.sv` \
 \
 `questa.do` file is run on Questa/ModelSim to create and run a simulation. \

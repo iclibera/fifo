@@ -1,5 +1,5 @@
 # Sets up the directory
-vlog -work work -sv sim/tb_fifo.sv hdl/fifo.sv
+vlog -work work -sv sim/tb_fifo.sv hdl/async_fifo_ctrl.sv
 echo "Compilation Complete"
 
 # Loads the simulation
