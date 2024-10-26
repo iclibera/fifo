@@ -1,9 +1,9 @@
 module async_fifo_ctrl #(parameter int PTR_WIDTH = 8)
 (
-  input  wire  aclk_wr,
-  input  wire  aclk_rd,
-  input  wire  aresetn_wr,
-  input  wire  aresetn_rd,
+  input  logic aclk_wr,
+  input  logic aclk_rd,
+  input  logic aresetn_wr,
+  input  logic aresetn_rd,
   input  logic data_wr,
   input  logic data_rd,
   output logic oflow,
